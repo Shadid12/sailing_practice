@@ -1,4 +1,13 @@
 <h1>User Signup form</h1>
+
+	<% if(flash && flash.err) { %>
+		<ul class="alert alert-success">
+	<% Object.keys(flash.err).forEach(function(error) { %>
+		<li><%- JSON.stringify(flash.err[error]) %></li>
+	<% }) %>
+	</ul>
+	<% } %>
+
 <!--form starts-->
 <div class="container-fluid">
     <form action="/user/create" method="POST" id="sign-up-form" class="register-form">
@@ -29,4 +38,5 @@
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
     </form> 
 </div>
+
 <!--form ends-->
